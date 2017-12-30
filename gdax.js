@@ -13,21 +13,24 @@ const apiURI = 'https://api.gdax.com';
 const authedClient = new Gdax.AuthenticatedClient(key, secret, passphrase, apiURI);
 const publicClient = new Gdax.PublicClient();
 
-publicClient.getProductTicker('ETH-EUR', function(error, response, data){
+const currency = "ETH";
+const ref = "EUR";
+
+publicClient.getProductTicker(currency+'-'+ref, function(error, response, data){
     if(!error){
         price = parseFloat(data.price);
         authedClient.getAccounts(function(error, response, data){
             if(!error){
                 for(var item of data){
-                    if(item.currency=="ETH"){
+                    if(item.currency==currency){
                         units = item.balance;
                         break;
                     }
                 }
 
-                console.log("1 ETH = "+price+" EUR");
-                console.log("BALANCE = "+units+" ETH");
-                console.log("TOTAL = "+units*price+" EUR");
+                console.log("1 "+currency+" = "+price+" "+ref);
+                console.log("BALANCE = "+units+" "+currency);
+                console.log("TOTAL = "+units*price+" "+ref);
             }
         });
     }
