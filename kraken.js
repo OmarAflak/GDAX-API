@@ -7,9 +7,10 @@
 const fs = require("fs");
 const config = JSON.parse(fs.readFileSync("account.key"));
 
-const KrakenClient = require('kraken-exchange-api');
 const api_key = config.kraken.api_key;
 const api_private_key = config.kraken.api_private_key;
+
+const KrakenClient = require('kraken-exchange-api');
 const kraken = new KrakenClient(api_key, api_private_key);
 
 kraken.api('Balance', null, function(error, data) {

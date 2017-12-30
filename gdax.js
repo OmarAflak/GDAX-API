@@ -4,12 +4,12 @@
 const fs = require("fs");
 const config = JSON.parse(fs.readFileSync("account.key"));
 
-const Gdax = require('gdax');
 const key = config.gdax.key;
 const secret = config.gdax.secret;
 const passphrase = config.gdax.passphrase;
+
+const Gdax = require('gdax');
 const apiURI = 'https://api.gdax.com';
-const sandboxURI = 'https://api-public.sandbox.gdax.com';
 const authedClient = new Gdax.AuthenticatedClient(key, secret, passphrase, apiURI);
 const publicClient = new Gdax.PublicClient();
 
