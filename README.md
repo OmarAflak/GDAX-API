@@ -1,4 +1,7 @@
-# CRYPTO APIs
+# GDAX API
 
-    npm install coinbase/gdax-node
-    npm install kraken-exchange-api
+Sample code to demonstrate the use of GDAX api in NodeJs.
+
+```
+npm install coinbase/gdax-node
+```
